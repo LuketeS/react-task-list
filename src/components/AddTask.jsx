@@ -23,6 +23,9 @@ function AddTask({ onAddTaskSubmit }) {
       ></input>
       <button
         onClick={() => {
+          if (!title.trim() || !descripition.trim()) {
+            return alert("Não pode criar tarefas com campos em branco!");
+          }
           onAddTaskSubmit(title, descripition);
           setTitle("");
           setDescripition("");
