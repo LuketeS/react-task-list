@@ -8,21 +8,21 @@ function App() {
     {
       id: 1,
       title: "Estudar React",
-      descripition:
+      description:
         "Ler a documentação oficial do React e fazer exercícios práticos.",
       isCompleted: false,
     },
     {
       id: 2,
       title: "Estudar Inglês",
-      descripition:
+      description:
         "Ler a documentação oficial do React e fazer exercícios práticos.",
       isCompleted: false,
     },
     {
       id: 3,
       title: "Estudar Concurso",
-      descripition:
+      description:
         "Ler a documentação oficial do React e fazer exercícios práticos.",
       isCompleted: false,
     },
@@ -47,11 +47,11 @@ function App() {
     setTasks(newTasks);
   }
 
-  function onAddTaskSubmit(title, descripition) {
+  function onAddTaskSubmit(title, description) {
     const newTask = {
       id: v4(),
       title: title,
-      descripition: descripition,
+      description: description,
       isCompleted: false,
     };
     setTasks([...tasks, newTask]);
