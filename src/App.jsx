@@ -33,9 +33,27 @@ function App() {
   // Executa a função da esquerda, sempre que algum valor da lista é alterado.
   // Irei usar essa funcionalidade para sempre alterar o LocalStorager ao mesmo
   // tempo que o State das Tasks for alterado
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
+  // Se usar o useEffect com um lista vazia no segundo parâmetro, essa função só será executada
+  // na primeira vez que usuário acessar o componente
+
+  useEffect(() => {
+    async function fetchTasks() {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10",
+        {
+          method: "GET",
+        },
+      );
+      const data = await response.json();
+      setTasks(data);
+    }
+    fetchTasks();
+  }, []);
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
